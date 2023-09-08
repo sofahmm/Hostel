@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="14d5011c90a94a61a392ac0499fdabc2" Name="Diagram1">
+        <EntityTypeShape EntityType="prog320Model.Class" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="prog320Model.Client" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="prog320Model.Doljnost" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="prog320Model.Employee" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="prog320Model.Room" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="prog320Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="prog320Model.Ticket" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="prog320Model.FK_Room_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="prog320Model.FK_Ticket_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="prog320Model.FK_Employee_Doljnost" ManuallyRouted="false" />
+        <AssociationConnector Association="prog320Model.FK_Ticket_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="prog320Model.FK_Ticket_Room" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
