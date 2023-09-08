@@ -33,6 +33,7 @@ namespace Hostel.Pages
             string login = loginTb.Text.Trim();
             string password = passwordTb.Password.Trim();
 
+
             employees = new List<Employee>(DbConnection.prog320Entities.Employee.ToList());
             Employee currentUser = employees.FirstOrDefault(i => i.Login == login && i.Password == password);
             if (currentUser != null)
