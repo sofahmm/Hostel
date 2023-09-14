@@ -18,7 +18,6 @@ namespace Hostel.DB
         public Nullable<System.DateTime> date { get; set; }
         public Nullable<int> IdRoom { get; set; }
         public Nullable<int> IdClient { get; set; }
-        public Nullable<double> Cost { get; set; }
         public Nullable<int> IDEmployee { get; set; }
     
         public virtual Client Client { get; set; }

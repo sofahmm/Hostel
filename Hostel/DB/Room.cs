@@ -23,6 +23,7 @@ namespace Hostel.DB
         public int ID { get; set; }
         public Nullable<int> CountPeople { get; set; }
         public Nullable<int> IdClass { get; set; }
+        public Nullable<int> Cost { get; set; }
     
         public virtual Class Class { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

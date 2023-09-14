@@ -9,44 +9,50 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
           <Property Name="lastname" Type="nvarchar" MaxLength="50" />
           <Property Name="Birthday" Type="date" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="PassportData" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Doljnost">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
           <Property Name="Birthday" Type="date" />
           <Property Name="IdDoljnost" Type="int" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CountPeople" Type="int" />
           <Property Name="IdClass" Type="int" />
+          <Property Name="Cost" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -62,11 +68,10 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="date" Type="date" />
           <Property Name="IdRoom" Type="int" />
           <Property Name="IdClient" Type="int" />
-          <Property Name="Cost" Type="float" />
           <Property Name="IDEmployee" Type="int" />
         </EntityType>
         <Association Name="FK_Employee_Doljnost">
@@ -179,6 +184,10 @@
           <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Birthday" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Ticket" Relationship="Self.FK_Ticket_Client" FromRole="Client" ToRole="Ticket" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassportData" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Doljnost">
           <Key>
@@ -201,6 +210,7 @@
           <NavigationProperty Name="Ticket" Relationship="Self.FK_Ticket_Employee" FromRole="Employee" ToRole="Ticket" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
@@ -211,6 +221,7 @@
           <Property Name="IdClass" Type="Int32" />
           <NavigationProperty Name="Class" Relationship="Self.FK_Room_Class" FromRole="Room" ToRole="Class" />
           <NavigationProperty Name="Ticket" Relationship="Self.FK_Ticket_Room" FromRole="Room" ToRole="Ticket" />
+          <Property Name="Cost" Type="Int32" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -230,7 +241,6 @@
           <Property Name="date" Type="DateTime" Precision="0" />
           <Property Name="IdRoom" Type="Int32" />
           <Property Name="IdClient" Type="Int32" />
-          <Property Name="Cost" Type="Double" />
           <Property Name="IDEmployee" Type="Int32" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Ticket_Client" FromRole="Ticket" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Ticket_Employee" FromRole="Ticket" ToRole="Employee" />
@@ -342,6 +352,10 @@
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="prog320Model.Client">
               <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="PassportData" ColumnName="PassportData" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="lastname" ColumnName="lastname" />
@@ -360,6 +374,7 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="prog320Model.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -373,6 +388,7 @@
           <EntitySetMapping Name="Room">
             <EntityTypeMapping TypeName="prog320Model.Room">
               <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CountPeople" ColumnName="CountPeople" />
                 <ScalarProperty Name="IdClass" ColumnName="IdClass" />
@@ -397,7 +413,6 @@
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="IdRoom" ColumnName="IdRoom" />
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="IDEmployee" ColumnName="IDEmployee" />
               </MappingFragment>
             </EntityTypeMapping>

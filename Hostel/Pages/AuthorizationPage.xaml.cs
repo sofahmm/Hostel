@@ -36,7 +36,7 @@ namespace Hostel.Pages
             employees = new List<Employee>(DbConnection.prog320Entities.Employee.ToList());
             Employee currentUser = employees.FirstOrDefault(i => i.Login == login && i.Password == password);
             if (currentUser != null)
-                MessageBox.Show("Все верно");
+                NavigationService.Navigate(new MainMenuPage());
             else
                 MessageBox.Show("Все !верно");
         }
