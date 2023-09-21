@@ -32,7 +32,6 @@
                Grid.RowSpan="2"/>
 
         <TextBlock Grid.Column="3"
-                   Grid.RowSpan="2"
                    Grid.ColumnSpan="3"
                    Text="Кумышбаева София Алексеевна"
                    TextWrapping="Wrap"
@@ -125,15 +124,35 @@
                  Margin="10"
                  BorderThickness="2"/>
 
+        <StackPanel Grid.Column="3"
+                 Grid.ColumnSpan="3"
+                 Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <TextBox Margin="20"
+                     x:Name="SearchTb"
+                     TextChanged="SearchTb_TextChanged"
+                 Width="200"/>
+            <Button x:Name="SearchBtn"
+                    Click="SearchBtn_Click"
+                    Content="Найти"
+                    Height="50"
+                    Width="100"/>
+        </StackPanel>
+        
+
         <ListView Grid.Column="3"
                   Grid.ColumnSpan="3"
                   Grid.Row="2"
                   Grid.RowSpan="4"
+                  x:Name="ClientsLv"
+                  SelectionChanged="ClientsLv_SelectionChanged"
                   ItemsSource="{Binding clients}">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Фамилия Имя Отчество">
+                        <GridViewColumn Header="Фамилия Имя Отчество"
+                                        Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
@@ -144,14 +163,16 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Паспортные данные">
+                        <GridViewColumn Header="Паспортные данные"
+                                        Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding PassportData}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Номер телефона">
+                        <GridViewColumn Header="Номер телефона"
+                                        Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding PhoneNumber}"/>
